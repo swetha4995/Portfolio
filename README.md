@@ -22,21 +22,44 @@ A modern, animated portfolio showcasing expertise in IoT, Full-Stack Development
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:**  Node.js 18+
 
 1. Install dependencies:
    ```bash
    npm install
    ```
-2. Set the `GEMINI_API_KEY` in `.env.local` to your Gemini API key (if using AI features)
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
-4. Build for production:
+3. Build for production:
    ```bash
    npm run build
    ```
+
+## Deploy to Cloudflare Pages
+
+### Method 1: Via Cloudflare Dashboard (Recommended)
+
+1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+2. Go to **Workers & Pages** → **Create application** → **Pages**
+3. Connect to your GitHub repository: `swetha4995/Portfolio`
+4. Configure build settings:
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: `/` (leave empty)
+   - **Environment variables**: Add `GEMINI_API_KEY` if needed
+5. Click **Save and Deploy**
+
+**Important**: Do NOT add a custom "Deploy command" - leave it empty!
+
+### Method 2: Via Wrangler CLI
+
+```bash
+npm install -g wrangler
+wrangler login
+npm run pages:deploy
+```
 
 ### 📫 Connect
 
